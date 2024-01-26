@@ -1,0 +1,6 @@
+class Layer:
+    def update(self):
+        ...
+
+    def draw(self):
+        ...
