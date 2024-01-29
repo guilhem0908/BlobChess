@@ -9,7 +9,7 @@ class ConfigWindow:
 
 class Config:
     """
-    Automatically call load() to ensure the existence of attributes.
+    Auto-calling load() for attribute setup.
     """
     fps: int
 

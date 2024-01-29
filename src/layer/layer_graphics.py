@@ -1,0 +1,6 @@
+class LayerGraphics:
+    def load(self):
+        ...
+
+    def resize(self, width: int, height: int):
+        ...

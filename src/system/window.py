@@ -10,27 +10,26 @@ class Window:
 
     def __init__(self, config: ConfigWindow):
         self.config = config
-        self.apply_mode()
+        self._apply_mode()
         pygame.display.set_caption(WINDOW_TITLE)
 
-    def to_fullscreen(self):
+    def _to_fullscreen(self):
         self.surface = pygame.display.set_mode(flags=FULLSCREEN)
 
-    def to_windowed(self):
+    def _to_windowed(self):
         self.surface = pygame.display.set_mode(self.config.size, RESIZABLE)
 
-    def apply_mode(self):
-        print(self.config.size)
-        self.to_fullscreen() if self.config.fullscreen else self.to_windowed()
+    def _apply_mode(self):
+        self._to_fullscreen() if self.config.fullscreen else self._to_windowed()
 
     def resize(self, width: int, height: int):
         self._backup_window_size = self.config.size
         self.config.size = max(width, WINDOW_WIDTH), max(height, WINDOW_HEIGHT)
-        self.to_windowed()
+        self._to_windowed()
 
     def maximize(self):
         self.config.size = self._backup_window_size
 
     def toggle_fullscreen(self):
         self.config.fullscreen = not self.config.fullscreen
-        self.apply_mode()
+        self._apply_mode()

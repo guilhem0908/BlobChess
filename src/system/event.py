@@ -21,7 +21,7 @@ class Event:
                         case pygame.K_F11:
                             self.window.toggle_fullscreen()
                             # Clear video resize event from the queue
-                            # because Window.apply_mode() generates a video resize event.
+                            # because Window.apply_mode() post a video resize event.
                             pygame.event.clear(pygame.VIDEORESIZE)
                 case pygame.MOUSEBUTTONDOWN:
                     ...
